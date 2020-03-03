@@ -1,6 +1,10 @@
 import exo1.Exo1
 import exo1.Person
 import exo2.WordGenerator
+import exo3.Pack
+import exo3.Product
+import exo3.ProductManager
+import exo3.Smartphone
 
 fun main(args: Array<String>){
 
@@ -25,8 +29,8 @@ fun main(args: Array<String>){
     println("\nFrequence de la lettre \'e\' dans la phrase : \"Ceci est un tres long message\": $freq")
 
     //Exercice 2
+    println("\nExercice 2:")
     var score:Int = 0
-    println("Exercice 2:")
     var wordList = mutableListOf<String>()
     wordList.add("Bonjour")
     wordList.add("Ordinateur")
@@ -48,4 +52,40 @@ fun main(args: Array<String>){
         if(readLine().equals("q")) stop=true
     }
 
+    //Exercice 3
+    println("\nExercice 3:")
+    val productManager:ProductManager = ProductManager()
+    val productList:MutableList<Product> = mutableListOf()
+    val smartphone1 = Smartphone("Samsung","Blanc","G980","Galaxy S20",150000L,10)
+    val smartphone2 = Smartphone("Apple","Noir","AX11000","iPhone 11",180000L,7)
+    val pack1:Pack=Pack(
+        "Gift Name 1",
+        5,
+        "Pack de rentrée",
+        500000,
+        5
+    )
+    val pack2:Pack=Pack(
+        "Gift Name 2",
+        5,
+        "Pack de fin d\'année",
+        300000,
+        5
+    )
+
+    pack1.addSmartphone(smartphone1,2)
+    pack1.addSmartphone(smartphone2,3)
+    pack2.addSmartphone(smartphone2,2)
+
+    productList.add(smartphone1)
+    productList.add(pack1)
+    productList.add(smartphone2)
+    productList.add(pack2)
+
+    println("Nombre de smartphones: "+productManager.getTypeNumber(productList,"Smartphone"))
+    println("Nombre de packs: "+productManager.getTypeNumber(productList,"Pack"))
+    println("Packs du Samsung Galaxy S20:")
+    for(p:Pack in productManager.getPacks(productList,"Galaxy S20"))
+        println("   *"+p.name)
+    println("Prix de la liste de produits: "+productManager.getTotalPrice(productList)+" DZD")
 }
