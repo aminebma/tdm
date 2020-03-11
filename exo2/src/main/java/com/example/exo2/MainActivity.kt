@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             }
             is Pack->{
                 productImage.setImageResource(R.drawable.ic_pack)
-                productInfo.text = product.name + " " + product.name
+                productInfo.text = product.name
             }
         }
         price.text= NumberFormat.getInstance(Locale.FRANCE).format(product.price).toString() + " DA"
