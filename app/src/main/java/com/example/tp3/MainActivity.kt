@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         5
     )
     private val pack3:Pack=Pack(
-        "Gift Name 2",
+        "Gift Name 3",
         5,
         "Pack de printemps",
         700000,
