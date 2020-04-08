@@ -43,21 +43,22 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    fun loadData():List<Product> {
-        val data = mutableListOf<Product>()
+    fun loadData():List<OrderLine> {
+        val data = mutableListOf<OrderLine>()
+
         pack1.addSmartphone(smartphone1,2)
         pack1.addSmartphone(smartphone2,3)
         pack2.addSmartphone(smartphone2,2)
         pack3.addSmartphone(smartphone3,2)
         pack3.addSmartphone(smartphone5,3)
-        data.add(smartphone1)
-        data.add(pack1)
-        data.add(smartphone2)
-        data.add(pack2)
-        data.add(pack3)
-        data.add(smartphone3)
-        data.add(smartphone4)
-        data.add(smartphone5)
+        data.add(OrderLine(smartphone1,0))
+        data.add(OrderLine(pack1,0))
+        data.add(OrderLine(smartphone2,0))
+        data.add(OrderLine(pack2,0))
+        data.add(OrderLine(pack3,0))
+        data.add(OrderLine(smartphone3,0))
+        data.add(OrderLine(smartphone4,0))
+        data.add(OrderLine(smartphone5,0))
         return data
     }
 

@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ProductAdapter(var context:Context, var data:List<Product>):RecyclerView.Adapter<ProductViewHolder>() {
+class ProductAdapter(var context:Context, var data:List<OrderLine>):RecyclerView.Adapter<ProductViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         return ProductViewHolder(LayoutInflater.from(context).inflate(R.layout.product_layout, parent, false))
     }
@@ -17,33 +17,31 @@ class ProductAdapter(var context:Context, var data:List<Product>):RecyclerView.A
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        when(val product = data[position]){
+        when(val product = data[position].product){
             is Pack ->{
                 holder.productInfos.text = product.name
                 holder.price.text = product.price.toString()
                 holder.productImage.setImageResource(R.drawable.ic_pack)
+                holder.quantity.text = data[position].qteOrder.toString()
             }
             is Smartphone ->{
                 holder.productInfos.text = product.brand + " " + product.name + " " +product.model + " " + product.color
                 holder.price.text = product.price.toString()
                 holder.productImage.setImageResource(R.drawable.ic_phone)
+                holder.quantity.text = data[position].qteOrder.toString()
             }
         }
 
         holder.add.setOnClickListener{
-            var qte =Integer.parseInt(holder.quantity.text.toString())
-            if(qte<data[position].Qte) {
-                qte++
-                holder.quantity.text = qte.toString()
+            if(data[position].qteOrder<data[position].product.Qte) {
+                data[position].qteOrder++
             }
             notifyDataSetChanged()
         }
 
         holder.min.setOnClickListener{
-            var qte =Integer.parseInt(holder.quantity.text.toString())
-            if(qte>0) {
-                qte--
-                holder.quantity.text = qte.toString()
+            if(data[position].qteOrder>0){
+                data[position].qteOrder--
             }
             notifyDataSetChanged()
         }
@@ -52,7 +50,6 @@ class ProductAdapter(var context:Context, var data:List<Product>):RecyclerView.A
 }
 
 class ProductViewHolder(view: View):RecyclerView.ViewHolder(view) {
-    //val productContainer = view.findViewById<ImageView>(R.id.container) as ImageView
     val productInfos = view.findViewById<TextView>(R.id.productInfo) as TextView
     val price = view.findViewById<TextView>(R.id.price) as TextView
     val productImage = view.findViewById<ImageView>(R.id.productImage) as ImageView

@@ -1,4 +1,3 @@
 package com.example.tp4
 
-class OrderLine(var qteOrder: Integer, val product: Product) {
-}
+data class OrderLine(val product: Product, var qteOrder: Int)
