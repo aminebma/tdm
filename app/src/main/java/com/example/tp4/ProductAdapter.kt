@@ -12,7 +12,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import java.time.Instant.now
 import java.time.LocalDate
+import java.util.*
 
 class ProductAdapter(var context:Context, var data:List<OrderLine>):RecyclerView.Adapter<ProductViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -56,7 +58,7 @@ class ProductAdapter(var context:Context, var data:List<OrderLine>):RecyclerView
             val ordersList = mutableListOf<OrderLine>()
             for(item in data)
                 if(item.qteOrder>0) ordersList.add(item)
-            val order = Order(1, LocalDate.now(), ordersList)
+            val order = Order(1, Date(), ordersList)
             val intent = Intent(context, DetailActivity::class.java)
             intent.putExtra("order", order)
             context.startActivity(intent)

@@ -18,8 +18,11 @@ class DetailActivity : AppCompatActivity() {
         for(item in order.orderList)
             order.amount += item.qteOrder*item.product.price
 
+        montantFacture.text = order.amount.toString() + " DA"
+
         montantVersement.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
@@ -29,8 +32,6 @@ class DetailActivity : AppCompatActivity() {
         }
 
         )
-
-        montantFacture.text = order.amount.toString()
 
         validateBtn.setOnClickListener {
             val intent = Intent(this, OrderSuccessActivity::class.java)
