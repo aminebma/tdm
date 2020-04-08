@@ -1,13 +1,18 @@
 package com.example.tp4
 
 import android.content.Context
+import android.content.Intent
+import android.os.Build
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import java.time.LocalDate
 
 class ProductAdapter(var context:Context, var data:List<OrderLine>):RecyclerView.Adapter<ProductViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -16,6 +21,7 @@ class ProductAdapter(var context:Context, var data:List<OrderLine>):RecyclerView
 
     override fun getItemCount() = data.size
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         when(val product = data[position].product){
             is Pack ->{
@@ -44,6 +50,16 @@ class ProductAdapter(var context:Context, var data:List<OrderLine>):RecyclerView
                 data[position].qteOrder--
             }
             notifyDataSetChanged()
+        }
+
+        holder.itemView.setOnClickListener {
+            val ordersList = mutableListOf<OrderLine>()
+            for(item in data)
+                if(item.qteOrder>0) ordersList.add(item)
+            val order = Order(1, LocalDate.now(), ordersList)
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("order", order)
+            context.startActivity(intent)
         }
     }
 
