@@ -1,2 +1,3 @@
 rootProject.name='TP4'
 include ':app'
+include ':exo3'
