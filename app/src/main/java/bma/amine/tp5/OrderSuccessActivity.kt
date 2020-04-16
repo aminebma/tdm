@@ -1,4 +1,4 @@
-package com.example.tp5
+package bma.amine.tp5
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

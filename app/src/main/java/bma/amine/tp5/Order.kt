@@ -1,4 +1,4 @@
-package com.example.tp5
+package bma.amine.tp5
 
 import java.io.Serializable
 import java.util.*
