@@ -8,35 +8,34 @@
     tools:context=".DetailsFragment">
 
     <ImageView
-        android:id="@+id/productImage"
+        android:id="@+id/pImage"
         android:layout_width="166dp"
         android:layout_height="268dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/galaxy_s20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/productType"
+        android:id="@+id/pType"
         android:layout_width="84dp"
         android:layout_height="19dp"
         android:layout_marginStart="4dp"
         android:text="Type"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/productTypeL"
-        app:layout_constraintStart_toEndOf="@+id/productTypeL" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/pTypeL"
+        app:layout_constraintStart_toEndOf="@+id/pTypeL" />
 
     <TextView
-        android:id="@+id/productTypeL"
+        android:id="@+id/pTypeL"
         android:layout_width="68dp"
         android:layout_height="19dp"
         android:layout_marginStart="24dp"
         android:text="Produit :"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/productImage"
-        app:layout_constraintTop_toTopOf="@+id/productImage" />
+        app:layout_constraintStart_toEndOf="@+id/pImage"
+        app:layout_constraintTop_toTopOf="@+id/pImage" />
 
     <TextView
         android:id="@+id/brandL"
@@ -45,8 +44,8 @@
         android:layout_marginTop="20dp"
         android:text="Marque :"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/productTypeL"
-        app:layout_constraintTop_toBottomOf="@+id/productTypeL" />
+        app:layout_constraintStart_toStartOf="@+id/pTypeL"
+        app:layout_constraintTop_toBottomOf="@+id/pTypeL" />
 
     <TextView
         android:id="@+id/brand"
@@ -55,10 +54,10 @@
         android:text="Marque"
         android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/brandL"
-        app:layout_constraintStart_toStartOf="@+id/productType" />
+        app:layout_constraintStart_toStartOf="@+id/pType" />
 
     <TextView
-        android:id="@+id/productNameL"
+        android:id="@+id/pNameL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -68,12 +67,12 @@
         app:layout_constraintTop_toBottomOf="@+id/brandL" />
 
     <TextView
-        android:id="@+id/productName"
+        android:id="@+id/pName"
         android:layout_width="84dp"
         android:layout_height="19dp"
         android:text="Nom"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/productNameL"
+        app:layout_constraintBaseline_toBaselineOf="@+id/pNameL"
         app:layout_constraintStart_toStartOf="@+id/brand" />
 
     <TextView
@@ -83,8 +82,8 @@
         android:layout_marginTop="24dp"
         android:text="Modèle :"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/productNameL"
-        app:layout_constraintTop_toBottomOf="@+id/productNameL" />
+        app:layout_constraintStart_toStartOf="@+id/pNameL"
+        app:layout_constraintTop_toBottomOf="@+id/pNameL" />
 
     <TextView
         android:id="@+id/model"
@@ -93,7 +92,7 @@
         android:text="Modèle"
         android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/modelL"
-        app:layout_constraintStart_toStartOf="@+id/productName" />
+        app:layout_constraintStart_toStartOf="@+id/pName" />
 
     <TextView
         android:id="@+id/colorL"
@@ -122,8 +121,8 @@
         android:text="Description :"
         android:textColor="#FFFFFF"
         android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="@+id/productImage"
-        app:layout_constraintTop_toBottomOf="@+id/productImage" />
+        app:layout_constraintStart_toStartOf="@+id/pImage"
+        app:layout_constraintTop_toBottomOf="@+id/pImage" />
 
     <TextView
         android:id="@+id/description"
@@ -131,6 +130,7 @@
         android:layout_height="245dp"
         android:layout_marginTop="20dp"
         android:text="Description du produit"
+        android:justificationMode="inter_word"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -138,7 +138,7 @@
         app:layout_constraintTop_toBottomOf="@+id/descriptionL" />
 
     <TextView
-        android:id="@+id/quantityL"
+        android:id="@+id/qteL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -148,46 +148,32 @@
         app:layout_constraintTop_toBottomOf="@+id/colorL" />
 
     <TextView
-        android:id="@+id/quantity"
+        android:id="@+id/qte"
         android:layout_width="84dp"
         android:layout_height="19dp"
         android:text="Quantité"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/quantityL"
+        app:layout_constraintBaseline_toBaselineOf="@+id/qteL"
         app:layout_constraintStart_toStartOf="@+id/color" />
 
     <TextView
-        android:id="@+id/priceL"
+        android:id="@+id/prixL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Prix :"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/productImage"
-        app:layout_constraintStart_toStartOf="@+id/quantityL"
-        app:layout_constraintTop_toBottomOf="@+id/quantityL" />
+        app:layout_constraintBottom_toBottomOf="@+id/pImage"
+        app:layout_constraintStart_toStartOf="@+id/qteL"
+        app:layout_constraintTop_toBottomOf="@+id/qteL" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/prix"
         android:layout_width="84dp"
         android:layout_height="19dp"
         android:text="Prix"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/priceL"
-        app:layout_constraintStart_toStartOf="@+id/quantity" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/prixL"
+        app:layout_constraintStart_toStartOf="@+id/qte" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#FFFFFF"
-        android:text="Retour"
-        android:textColor="#9C1313"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/description"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="@+id/description"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
