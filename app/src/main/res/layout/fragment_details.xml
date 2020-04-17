@@ -127,14 +127,15 @@
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="340dp"
-        android:layout_height="286dp"
+        android:layout_width="347dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="20dp"
         android:text="Description du produit"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/descriptionL"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionL"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionL" />
 
     <TextView
         android:id="@+id/quantityL"
@@ -174,4 +175,19 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/priceL"
         app:layout_constraintStart_toStartOf="@+id/quantity" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="#FFFFFF"
+        android:text="Retour"
+        android:textColor="#9C1313"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/description"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="@+id/description"
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
