@@ -1,4 +1,4 @@
-package bma.amine.tp5
+package bma.amine.tp6
 
 class Pack(val giftName:String, val giftQte:Int, name: String, price: Long, Qte: Int, image: Int, description: String )
                 : Product(name, price, Qte, image, description) {

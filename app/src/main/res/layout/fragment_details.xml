@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsFragment">
+
+    <ImageView
+        android:id="@+id/pImage"
+        android:layout_width="166dp"
+        android:layout_height="268dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pType"
+        android:layout_width="84dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="4dp"
+        android:text="Type"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/pTypeL"
+        app:layout_constraintStart_toEndOf="@+id/pTypeL" />
+
+    <TextView
+        android:id="@+id/pTypeL"
+        android:layout_width="68dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="24dp"
+        android:text="Produit :"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/pImage"
+        app:layout_constraintTop_toTopOf="@+id/pImage" />
+
+    <TextView
+        android:id="@+id/brandL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Marque :"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/pTypeL"
+        app:layout_constraintTop_toBottomOf="@+id/pTypeL" />
+
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="84dp"
+        android:layout_height="19dp"
+        android:text="Marque"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/brandL"
+        app:layout_constraintStart_toStartOf="@+id/pType" />
+
+    <TextView
+        android:id="@+id/pNameL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Nom :"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/brandL"
+        app:layout_constraintTop_toBottomOf="@+id/brandL" />
+
+    <TextView
+        android:id="@+id/pName"
+        android:layout_width="84dp"
+        android:layout_height="19dp"
+        android:text="Nom"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/pNameL"
+        app:layout_constraintStart_toStartOf="@+id/brand" />
+
+    <TextView
+        android:id="@+id/modelL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Modèle :"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/pNameL"
+        app:layout_constraintTop_toBottomOf="@+id/pNameL" />
+
+    <TextView
+        android:id="@+id/model"
+        android:layout_width="84dp"
+        android:layout_height="19dp"
+        android:text="Modèle"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/modelL"
+        app:layout_constraintStart_toStartOf="@+id/pName" />
+
+    <TextView
+        android:id="@+id/colorL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Couleur : "
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/modelL"
+        app:layout_constraintTop_toBottomOf="@+id/modelL" />
+
+    <TextView
+        android:id="@+id/color"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:text="Couleur"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/colorL"
+        app:layout_constraintStart_toStartOf="@+id/model" />
+
+    <TextView
+        android:id="@+id/descriptionL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Description :"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/pImage"
+        app:layout_constraintTop_toBottomOf="@+id/pImage" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="347dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="20dp"
+        android:text="Description du produit"
+        android:justificationMode="inter_word"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/descriptionL"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionL" />
+
+    <TextView
+        android:id="@+id/qteL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Quantité : "
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/colorL"
+        app:layout_constraintTop_toBottomOf="@+id/colorL" />
+
+    <TextView
+        android:id="@+id/qte"
+        android:layout_width="84dp"
+        android:layout_height="19dp"
+        android:text="Quantité"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/qteL"
+        app:layout_constraintStart_toStartOf="@+id/color" />
+
+    <TextView
+        android:id="@+id/prixL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Prix :"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/pImage"
+        app:layout_constraintStart_toStartOf="@+id/qteL"
+        app:layout_constraintTop_toBottomOf="@+id/qteL" />
+
+    <TextView
+        android:id="@+id/prix"
+        android:layout_width="84dp"
+        android:layout_height="19dp"
+        android:text="Prix"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/prixL"
+        app:layout_constraintStart_toStartOf="@+id/qte" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
