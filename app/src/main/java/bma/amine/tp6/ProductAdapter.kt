@@ -32,11 +32,13 @@ class ProductAdapter(var context:Context, var data:List<OrderLine>):RecyclerView
                 holder.productInfos.text = product.name
                 holder.price.text = product.price.toString()
                 holder.quantity.text = data[position].qteOrder.toString()
+                holder.productImage.setImageResource(R.drawable.ic_pack)
             }
             is Smartphone ->{
                 holder.productInfos.text = product.brand + " " + product.name + " " +product.model + " " + product.color
                 holder.price.text = product.price.toString()
                 holder.quantity.text = data[position].qteOrder.toString()
+                holder.productImage.setImageResource(R.drawable.ic_phone)
             }
         }
 
@@ -79,6 +81,7 @@ class ProductAdapter(var context:Context, var data:List<OrderLine>):RecyclerView
 class ProductViewHolder(view: View):RecyclerView.ViewHolder(view) {
     val productInfos = view.findViewById(R.id.productInfo) as TextView
     val price = view.findViewById(R.id.price) as TextView
+    val productImage = view.findViewById<ImageView>(R.id.productImg) as ImageView
     val quantity = view.findViewById(R.id.quantity) as TextView
     val min = view.findViewById(R.id.minBtn) as ImageButton
     val add = view.findViewById(R.id.addBtn) as ImageButton
