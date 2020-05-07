@@ -11,10 +11,4 @@ interface ActorDAO {
     @Query("SELECT * FROM Actors")
     fun getAllActors():List<Actor>
 
-    @Update
-    fun updateActor(actor: Actor)
-
-    @Delete
-    fun deleteActor(actor: Actor)
-
 }

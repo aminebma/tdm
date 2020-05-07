@@ -30,5 +30,18 @@
         android:id="@+id/addMovieFragment"
         android:name="bma.amine.tp7.AddMovieFragment"
         android:label="fragment_add_movie"
-        tools:layout="@layout/fragment_add_movie" />
+        tools:layout="@layout/fragment_add_movie" >
+        <action
+            android:id="@+id/action_addMovieFragment_to_attachActorFragment"
+            app:destination="@id/attachActorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/attachActorFragment"
+        android:name="bma.amine.tp7.AttachActorFragment"
+        android:label="fragment_attach_actor"
+        tools:layout="@layout/fragment_attach_actor" >
+        <action
+            android:id="@+id/action_attachActorFragment_to_home"
+            app:destination="@id/home" />
+    </fragment>
 </navigation>

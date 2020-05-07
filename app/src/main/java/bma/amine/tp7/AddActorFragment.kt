@@ -29,13 +29,14 @@ class AddActorFragment : Fragment() {
             try {
                 RoomService.appDatabase.getActorDao().addActor(actor)
                 val pref = requireActivity().getSharedPreferences("appData", Context.MODE_PRIVATE)
-                pref.edit().putBoolean("isActorAvailable", true)
-                requireActivity().findNavController(R.id.nav_frag).navigate(R.id.action_addActorFragment_to_home)
-                Toast.makeText(requireActivity(),"Acteur inséré avec succès !", Toast.LENGTH_SHORT).show()
+                pref.edit().putBoolean("isActorAvailable", true).apply()
+                Toast.makeText(requireActivity(),"Acteur ajouté avec succès !", Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
                 println(e.message)
-                requireActivity().findNavController(R.id.nav_frag).navigate(R.id.action_addActorFragment_to_home)
                 Toast.makeText(requireActivity(),"L'ajout de l'acteur a échoué.", Toast.LENGTH_SHORT).show()
+            }
+            finally {
+                requireActivity().findNavController(R.id.nav_frag).navigate(R.id.action_addActorFragment_to_home)
             }
         }
     }

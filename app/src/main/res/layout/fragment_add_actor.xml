@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="Prénom :"
+        android:text="Prénom:"
         app:layout_constraintStart_toStartOf="@+id/lastName"
         app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="32dp"
-        android:text="Nom :"
+        android:text="Nom:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,6 +82,7 @@
         style="@style/buttonStyle"
         android:layout_marginTop="72dp"
         android:drawableStart="@drawable/ic_validate"
+        android:hint="Valider la création de l'acteur"
         android:text="Créer un acteur"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

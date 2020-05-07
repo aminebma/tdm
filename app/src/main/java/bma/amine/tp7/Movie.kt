@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
         )
     )
 )
-data class Movie (
+data class Movie(
     val title:String,
     val year:String,
     val language:String,
