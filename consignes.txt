@@ -1,0 +1,14 @@
+Créez un nouveau projet et ajoutez dans le fichier build.gradle du module:
+1. Dans la 4 ème ligne: apply plugin: 'kotlin-kapt' ( pour utiliser les annotations avec Kotlin)
+2. Dans dependencies les lignes:
+def room_version = "2.2.5"
+implementation "androidx.room:room-runtime:$room_version"
+kapt "androidx.room:room-compiler:$room_version"
+implementation "androidx.room:room-ktx:$room_version"
+testImplementation "androidx.room:room-testing:$room_version"
+3. Commentez dans dependencies la ligne: androidTestImplementation 'androidx.test:runner:1.2.0'
+4. Ajoutez dans dependencies les deux lignes:
+androidTestImplementation 'androidx.test:core:1.1.0'
+androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+
+et par la suite synchroniser, il faut avoir la connexion internet pour les télécharger.
