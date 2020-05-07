@@ -6,9 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Actors")
 data class Actor(
-    @PrimaryKey
-    val id:Long,
     val firstName: String,
     val lastName: String,
     val gender: String
-)
+){
+    @PrimaryKey(autoGenerate = true)
+    var id:Int?=null
+}

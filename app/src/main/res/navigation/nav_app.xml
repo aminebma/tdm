@@ -3,20 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_app"
-    app:startDestination="@id/home2">
+    app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/home2"
+        android:id="@+id/home"
         android:name="bma.amine.tp7.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:label="Accueil"
+        tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_home2_to_addActorFragment"
+            android:id="@+id/action_home_to_addActorFragment"
             app:destination="@id/addActorFragment" />
+        <action
+            android:id="@+id/action_home_to_addMovieFragment"
+            app:destination="@id/addMovieFragment" />
     </fragment>
     <fragment
         android:id="@+id/addActorFragment"
         android:name="bma.amine.tp7.AddActorFragment"
         android:label="fragment_add_actor"
-        tools:layout="@layout/fragment_add_actor" />
+        tools:layout="@layout/fragment_add_actor" >
+        <action
+            android:id="@+id/action_addActorFragment_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMovieFragment"
+        android:name="bma.amine.tp7.AddMovieFragment"
+        android:label="fragment_add_movie"
+        tools:layout="@layout/fragment_add_movie" />
 </navigation>

@@ -15,12 +15,12 @@ import androidx.room.PrimaryKey
         )
     )
 )
-
 data class Movie (
-    @PrimaryKey
-    val id:Long,
     val title:String,
     val year:String,
     val language:String,
-    val idActor:Long
-)
+    val idActor:Int?
+){
+    @PrimaryKey(autoGenerate = true)
+    var id:Int?=null
+}

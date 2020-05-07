@@ -9,21 +9,24 @@
 
     <Button
         android:id="@+id/addActor"
-        android:layout_marginTop="68dp"
-        android:background="#FFFFFF"
-        android:drawableStart="@drawable/ic_actor"
-        android:text="Ajouter un Acteur"
         style="@style/buttonStyle"
+        android:layout_marginTop="68dp"
+        android:drawableStart="@drawable/ic_actor"
+        android:hint="Ajouter un acteur"
+        android:text="Ajouter un Acteur"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/addMovie"
-        android:layout_marginTop="44dp"
-        android:drawableStart="@drawable/ic_film"
-        android:text="Ajouter un Film"
         style="@style/buttonStyle"
+        android:layout_marginTop="44dp"
+        android:clickable="false"
+        android:drawableStart="@drawable/ic_film"
+        android:enabled="false"
+        android:hint="Ajouter un film"
+        android:text="Ajouter un Film"
         app:layout_constraintEnd_toEndOf="@+id/addActor"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/addActor"
