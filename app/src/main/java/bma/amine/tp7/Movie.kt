@@ -22,5 +22,5 @@ data class Movie (
     val title:String,
     val year:String,
     val language:String,
-    val idActor:Long?
+    val idActor:Long
 )

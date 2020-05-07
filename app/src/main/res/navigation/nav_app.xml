@@ -7,7 +7,16 @@
 
     <fragment
         android:id="@+id/home2"
-        android:name="bma.amine.tp7.home"
+        android:name="bma.amine.tp7.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_addActorFragment"
+            app:destination="@id/addActorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addActorFragment"
+        android:name="bma.amine.tp7.AddActorFragment"
+        android:label="fragment_add_actor"
+        tools:layout="@layout/fragment_add_actor" />
 </navigation>

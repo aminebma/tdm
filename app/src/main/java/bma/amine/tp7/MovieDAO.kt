@@ -13,10 +13,4 @@ interface MovieDAO {
     @Query("SELECT * FROM Movies WHERE title=:movieName")
     fun getMoviesByName(movieName: String):List<Movie>
 
-    @Update
-    fun updateMovie(movie: Movie)
-
-    @Delete
-    fun deleteMovie(movie: Movie)
-
 }
