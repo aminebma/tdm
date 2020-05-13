@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <Button
+        android:id="@+id/addActor"
+        style="@style/buttonStyle"
+        android:layout_marginTop="68dp"
+        android:drawableStart="@drawable/ic_actor"
+        android:hint="Ajouter un acteur"
+        android:text="Ajouter un Acteur"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/addMovie"
+        style="@style/buttonStyle"
+        android:layout_marginTop="44dp"
+        android:clickable="true"
+        android:drawableStart="@drawable/ic_film"
+        android:enabled="true"
+        android:hint="Ajouter un film"
+        android:text="Ajouter un Film"
+        app:layout_constraintEnd_toEndOf="@+id/addActor"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/addActor"
+        app:layout_constraintTop_toBottomOf="@+id/addActor" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Bienvenu dans ESIFLIX !      Que souhaitez-vous faire ?"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
