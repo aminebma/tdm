@@ -48,10 +48,9 @@ class AttachActorFragment : Fragment() {
 
                     override fun onResponse(call: Call<Double>, response: Response<Double>) {
                         if (response.isSuccessful) {
-                            Toast.makeText(activity!!, "Acteur attaché avec succès !", Toast.LENGTH_SHORT)
+                            Toast.makeText(activity!!, "Acteur(s) attaché(s) avec succès !", Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(activity!!, "Une erreur s'est produite", Toast.LENGTH_SHORT)
-                                .show()
+                            Toast.makeText(activity!!, "Une erreur s'est produite", Toast.LENGTH_SHORT).show()
                         }
                     }
                 })

@@ -41,7 +41,7 @@ class AddActorFragment : Fragment() {
 
                     override fun onResponse(call: Call<Double>, response: Response<Double>) {
                         if(response.isSuccessful){
-                            Toast.makeText(activity!!,"Acteur ajouté avec succès !",Toast.LENGTH_SHORT)
+                            Toast.makeText(activity!!,"Acteur ajouté avec succès !",Toast.LENGTH_SHORT).show()
                             requireActivity().findNavController(R.id.nav_frag).navigate(R.id.action_addActorFragment_to_home)
                         }else{
                             Toast.makeText(activity!!,"Une erreur s'est produite", Toast.LENGTH_SHORT).show()

@@ -32,7 +32,7 @@ class ActorAdapter(var context: Context, var fragment:AttachActorFragment ,var d
             if(!fragment._selectedActors.contains(data[position].id))
                 fragment._selectedActors.add(data[position].id!!)
             else
-                Toast.makeText(context,"Acteur déjà selectionné !", Toast.LENGTH_SHORT)
+                Toast.makeText(context,"Acteur déjà selectionné !", Toast.LENGTH_SHORT).show()
         }
     }
 }

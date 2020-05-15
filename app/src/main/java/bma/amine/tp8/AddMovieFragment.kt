@@ -43,7 +43,7 @@ class AddMovieFragment : Fragment() {
 
                 override fun onResponse(call: Call<Double>, response: Response<Double>) {
                     if(response.isSuccessful){
-                        Toast.makeText(activity!!,"Film ajouté avec succès !",Toast.LENGTH_SHORT)
+                        Toast.makeText(activity!!,"Film ajouté avec succès !",Toast.LENGTH_SHORT).show()
                         val bundle = bundleOf(
                             "id" to response.body(),
                             "title" to titleT.text.toString(),

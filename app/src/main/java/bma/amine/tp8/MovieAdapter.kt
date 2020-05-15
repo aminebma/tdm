@@ -50,7 +50,6 @@ class MovieAdapter(var context: Context, var data:List<Movie>): RecyclerView.Ada
     }
 }
 
-
 class MovieViewHolder(view: View):RecyclerView.ViewHolder(view) {
     val title = view.findViewById(R.id.firstField) as TextView
     val year = view.findViewById(R.id.secondField) as TextView
