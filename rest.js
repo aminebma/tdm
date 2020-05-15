@@ -30,8 +30,6 @@ app.get('/movie/getmovies', function(req, res){
     })
 })
 
-
-
 app.get('/movie/getmovie/:title',function(req,res) {
     const query = "select * from users where title=?";
     connection.query(query, [req.params.title], function (error, results) {
