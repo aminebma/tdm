@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_addMovieFragment_to_attachActorFragment"
             app:destination="@id/attachActorFragment" />
+        <action
+            android:id="@+id/action_addMovieFragment_to_home"
+            app:destination="@id/home" />
     </fragment>
     <fragment
         android:id="@+id/attachActorFragment"

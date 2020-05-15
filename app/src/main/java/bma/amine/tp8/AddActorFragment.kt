@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_add_actor.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AddActorFragment : Fragment() {
 
@@ -25,19 +28,26 @@ class AddActorFragment : Fragment() {
 
         validateActor.setOnClickListener {
             val gender = if(sexSwith.isChecked) "Homme" else "Femme"
-            var actor = Actor(firstNameT.text.toString(),lastNameT.text.toString(),gender)
-            try {
-                RoomService.appDatabase.getActorDao().addActor(actor)
-                val pref = requireActivity().getSharedPreferences("appData", Context.MODE_PRIVATE)
-                pref.edit().putBoolean("isActorAvailable", true).apply()
-                Toast.makeText(requireActivity(),"Acteur ajouté avec succès !", Toast.LENGTH_SHORT).show()
-            } catch (e: Exception) {
-                println(e.message)
-                Toast.makeText(requireActivity(),"L'ajout de l'acteur a échoué.", Toast.LENGTH_SHORT).show()
-            }
-            finally {
-                requireActivity().findNavController(R.id.nav_frag).navigate(R.id.action_addActorFragment_to_home)
-            }
+                val call = RetrofitService.endpoint.addActor(
+                    Actor(
+                        null,
+                        firstNameT.text.toString(),
+                        lastNameT.text.toString(),
+                        gender))
+                call.enqueue(object: Callback<Double> {
+                    override fun onFailure(call: Call<Double>, t: Throwable) {
+                        Toast.makeText(activity!!,"Une erreur s'est produite", Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onResponse(call: Call<Double>, response: Response<Double>) {
+                        if(response.isSuccessful){
+                            Toast.makeText(activity!!,"Acteur ajouté avec succès !",Toast.LENGTH_SHORT)
+                            requireActivity().findNavController(R.id.nav_frag).navigate(R.id.action_addActorFragment_to_home)
+                        }else{
+                            Toast.makeText(activity!!,"Une erreur s'est produite", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                })
         }
     }
 }
