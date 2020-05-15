@@ -22,7 +22,7 @@ connection.connect(function(err) {
 
 app.use(bodyParser.json())
 
-app.get('/getmovies', function(req, res){
+app.get('/movie/getmovies', function(req, res){
     const query = "SELECT * FROM movie"
     connection.query(query , function(error, results){
         if(error) throw(error)
@@ -32,7 +32,7 @@ app.get('/getmovies', function(req, res){
 
 
 
-app.get('/getmovie/:title',function(req,res) {
+app.get('/movie/getmovie/:title',function(req,res) {
     const query = "select * from users where title=?";
     connection.query(query, [req.params.title], function (error, results) {
         if (error) throw(error)
@@ -40,7 +40,7 @@ app.get('/getmovie/:title',function(req,res) {
     })
 })
 
-app.post('/add/movie', function(req, res){
+app.post('/movie/addmovie', function(req, res){
     const query = "INSERT INTO Movie(title,year,language) VALUES(?,?,?)"
     connection.query(query,[req.body.title, req.body.year, req.body.language], function(error){
         if(error) {console.log(error.toString())}
@@ -48,7 +48,7 @@ app.post('/add/movie', function(req, res){
     })
 })
 
-app.get('/getactors', function(req,res){
+app.get('/actor/getactors', function(req,res){
     const query = "SELECT * FROM Actor"
     connection.query(query,function (error, results) {
         if(error) throw error
@@ -56,7 +56,7 @@ app.get('/getactors', function(req,res){
     })
 })
 
-app.post('/add/actor', function(req, res){
+app.post('/actor/addactor', function(req, res){
     const query = "INSERT INTO Actor(firstName,lastName,gender) VALUES(?,?,?)"
     connection.query(query,[req.body.firstName, req.body.lastName, req.body.gender], function(error){
         if(error) {console.log(error.toString())}
@@ -64,6 +64,31 @@ app.post('/add/actor', function(req, res){
     })
 })
 
+app.get('/movie/getmoviesactors', function(req, res){
+    const query = "SELECT m.id as idMovie, m.title, m.year, m.language, a.id as idActor, a.firstName, a.lastName, a.gender\n" +
+        "FROM \n" +
+        "\tMovie m\n" +
+        "    JOIN movieactor ma on ma.idMovie = m.id\n" +
+        "    JOIN actor a on a.id = ma.idActor\n"
+    connection.query(query, function(error, results){
+        if(error) throw error
+        res.send(JSON.stringify(results))
+    })
+})
+
+app.get('/movie/getmovieactors/:title', function(req, res){
+    const query =  `SELECT a.id, a.firstName, a.lastName, a.gender
+        FROM 
+            \tMovie m
+            JOIN movieactor ma on ma.idMovie = m.id
+            JOIN actor a on a.id = ma.idActor
+        WHERE m.title=?
+        `
+    connection.query(query, [req.params.title],function(error, result){
+        if(error) throw error
+        res.send(JSON.stringify(result))
+    })
+})
 
 const server = app.listen(8082,function(){
     const host = server.address().address
