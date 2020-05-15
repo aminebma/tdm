@@ -86,4 +86,14 @@
         app:layout_constraintStart_toEndOf="@+id/searchBar"
         app:layout_constraintTop_toTopOf="@+id/searchBar" />
 
+    <ProgressBar
+        android:id="@+id/loadMoviesProgress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/moviesList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/moviesList"
+        app:layout_constraintTop_toTopOf="@+id/moviesList" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

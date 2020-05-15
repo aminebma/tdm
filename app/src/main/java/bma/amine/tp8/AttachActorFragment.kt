@@ -27,6 +27,7 @@ class AttachActorFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        loadActorsProgress.visibility = View.VISIBLE
         loadData()
         actorsList.layoutManager = LinearLayoutManager(requireActivity())
         movieTitle.text = arguments?.getString("title")
@@ -63,10 +64,12 @@ class AttachActorFragment : Fragment() {
         val call = RetrofitService.endpoint.getAllActors()
         call.enqueue(object: Callback<List<Actor>>{
             override fun onFailure(call: Call<List<Actor>>, t: Throwable) {
+                loadActorsProgress.visibility = View.INVISIBLE
                 Toast.makeText(activity!!,"Une erreur s'est produite", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<List<Actor>>, response: Response<List<Actor>>) {
+                loadActorsProgress.visibility = View.INVISIBLE
                 if(response.isSuccessful){
                     val list = response.body()
                     actorsList.adapter = ActorAdapter(requireActivity(),this@AttachActorFragment, list!!)

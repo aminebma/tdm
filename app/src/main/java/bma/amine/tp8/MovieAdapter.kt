@@ -34,12 +34,10 @@ class MovieAdapter(var context: Context, var data:List<Movie>): RecyclerView.Ada
                 override fun onResponse(call: Call<List<Actor>>, response: Response<List<Actor>>) {
                     if (response.isSuccessful) {
                         val list = response.body()
+                        var acteurs=""
                         for (item in list!!)
-                            Toast.makeText(
-                                context,
-                                "${item.firstName} ${item.lastName}",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            acteurs="${acteurs}\n${item.firstName} ${item.lastName}"
+                        Toast.makeText(context, acteurs,Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(context, "Une erreur s'est produite", Toast.LENGTH_SHORT)
                             .show()

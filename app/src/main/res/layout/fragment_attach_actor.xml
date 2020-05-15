@@ -63,4 +63,15 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/actorsList" />
+
+    <ProgressBar
+        android:id="@+id/loadActorsProgress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/actorsList"
+        app:layout_constraintEnd_toEndOf="@+id/actorsList"
+        app:layout_constraintStart_toStartOf="@+id/actorsList"
+        app:layout_constraintTop_toTopOf="@+id/actorsList" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
