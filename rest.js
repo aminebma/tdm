@@ -42,9 +42,9 @@ app.get('/movie/getmovie/:title',function(req,res) {
 
 app.post('/movie/addmovie', function(req, res){
     const query = "INSERT INTO Movie(title,year,language) VALUES(?,?,?)"
-    connection.query(query,[req.body.title, req.body.year, req.body.language], function(error){
+    connection.query(query,[req.body.title, req.body.year, req.body.language], function(error, result){
         if(error) {console.log(error.toString())}
-        res.status(200).send('Film correctement ajouté.')
+        res.send(JSON.stringify(result.insertId))
     })
 })
 
@@ -58,9 +58,9 @@ app.get('/actor/getactors', function(req,res){
 
 app.post('/actor/addactor', function(req, res){
     const query = "INSERT INTO Actor(firstName,lastName,gender) VALUES(?,?,?)"
-    connection.query(query,[req.body.firstName, req.body.lastName, req.body.gender], function(error){
+    connection.query(query,[req.body.firstName, req.body.lastName, req.body.gender], function(error, result){
         if(error) {console.log(error.toString())}
-        res.status(200).send('Acteur correctement ajouté.')
+        res.send(JSON.stringify(result.insertId))
     })
 })
 
@@ -87,6 +87,14 @@ app.get('/movie/getmovieactors/:title', function(req, res){
     connection.query(query, [req.params.title],function(error, result){
         if(error) throw error
         res.send(JSON.stringify(result))
+    })
+})
+
+app.post('/movie/addmovieactor', function(req, res){
+    const query = "INSERT INTO MovieActor VALUES(?,?)"
+    connection.query(query,[req.body.idMovie, req.body.idActor], function(error, result){
+        if(error) throw error
+        res.send(JSON.stringify(result.insertId))
     })
 })
 
