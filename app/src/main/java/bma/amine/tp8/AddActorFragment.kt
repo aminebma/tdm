@@ -1,17 +1,13 @@
 package bma.amine.tp8
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
+import androidx.work.*
 import kotlinx.android.synthetic.main.fragment_add_actor.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class AddActorFragment : Fragment() {
 
@@ -28,26 +24,25 @@ class AddActorFragment : Fragment() {
 
         validateActor.setOnClickListener {
             val gender = if(sexSwith.isChecked) "Homme" else "Femme"
-                val call = RetrofitService.endpoint.addActor(
-                    Actor(
-                        null,
-                        firstNameT.text.toString(),
-                        lastNameT.text.toString(),
-                        gender))
-                call.enqueue(object: Callback<Double> {
-                    override fun onFailure(call: Call<Double>, t: Throwable) {
-                        Toast.makeText(activity!!,"Une erreur s'est produite", Toast.LENGTH_SHORT).show()
-                    }
-
-                    override fun onResponse(call: Call<Double>, response: Response<Double>) {
-                        if(response.isSuccessful){
-                            Toast.makeText(activity!!,"Acteur ajouté avec succès !",Toast.LENGTH_SHORT).show()
-                            requireActivity().findNavController(R.id.nav_frag).navigate(R.id.action_addActorFragment_to_home)
-                        }else{
-                            Toast.makeText(activity!!,"Une erreur s'est produite", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                })
+            val tmpActorId:Long = RoomService.appDatabase.getActorDao().addTmpActor(
+            ActorTmp(
+                firstNameT.text.toString(),
+                lastNameT.text.toString(),
+                gender))
+            val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.UNMETERED)
+                .build()
+            val data = Data.Builder()
+            data.putLong("tmpActorId", tmpActorId)
+            data.putString("firstName", firstNameT.text.toString())
+            data.putString("lastName", lastNameT.text.toString())
+            data.putString("gender", gender)
+            val req = OneTimeWorkRequest.Builder(ActorWorker::class.java)
+                .setConstraints(constraints)
+                .setInputData(data.build())
+                .build()
+            val workManager = WorkManager.getInstance(requireActivity())
+            workManager.enqueueUniqueWork("Adding Actor", ExistingWorkPolicy.REPLACE, req)
+            requireActivity().findNavController(R.id.nav_frag).navigate(R.id.action_addActorFragment_to_home)
         }
     }
 }
